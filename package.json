@@ -6,6 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
+    "index": "node index.ts",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "lint:staged": "lint-staged",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",

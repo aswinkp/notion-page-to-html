@@ -35,7 +35,10 @@ export class NodeHttpPostClient implements HttpPostClient {
             resolve({ status, data: JSON.parse(result) });
           });
         })
-        .on('error', (err) => reject(err.message));
+        .on('error', (err) => {
+          console.log(err);
+          reject(err.message);
+        });
 
       req.write(stringifiedBody);
       req.end();

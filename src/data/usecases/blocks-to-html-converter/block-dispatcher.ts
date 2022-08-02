@@ -4,6 +4,9 @@ import * as blockParsers from './block-parsers';
 
 export class BlockDispatcher {
   dispatch(block: Block): ToHtml {
+    // if (block.type === 'column_list') {
+    //   console.log(JSON.stringify(block));
+    // }
     const ToHtmlConverter = fromBlockToHtmlConverter[block.type] || blockParsers.UnknownBlockToHtml;
     return new ToHtmlConverter(block);
   }
@@ -25,4 +28,7 @@ const fromBlockToHtmlConverter: Record<string, ToHtmlClass> = {
   callout: blockParsers.CalloutBlockToHtml,
   toggle: blockParsers.ToggleBlockToHtml,
   page: blockParsers.PageBlockToHtml,
+  column: blockParsers.ColumnBlockToHtml,
+  column_list: blockParsers.ColumnListBlockToHtml,
+  embed: blockParsers.EmbedBlockToHtml,
 };

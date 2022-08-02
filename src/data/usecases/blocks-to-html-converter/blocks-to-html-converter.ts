@@ -12,6 +12,7 @@ export class BlocksToHTML implements ToHtml {
     this._dispatcher = dispatcher;
     this._listBlocksWrapper = listBlocksWrapper;
     this._blocks = this._wrapLists(blocks);
+    // console.log(JSON.stringify(this._blocks, null, 4));
   }
 
   async convert(): Promise<string> {
@@ -21,6 +22,7 @@ export class BlocksToHTML implements ToHtml {
   }
 
   private async _convertBlock(block: Block): Promise<string> {
+    // console.log(JSON.stringify(block, null, 4));
     const blockToHtmlConverter = this._dispatch(block);
     const htmlBlock = await blockToHtmlConverter.convert();
     return new Promise((resolve) => resolve(htmlBlock));

@@ -16,4 +16,11 @@ export class FormatFilter {
   }
 }
 
-const ACCEPTABLE_KEYS: string[] = ['block_color', 'page_cover_position', 'block_width'];
+const ACCEPTABLE_KEYS: string[] = [
+  'block_color',
+  'block_width',
+  'page_icon',
+  'page_cover',
+  'page_cover_position',
+  'column_ratio',
+];

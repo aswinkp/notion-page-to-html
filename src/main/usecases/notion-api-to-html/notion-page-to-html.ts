@@ -18,10 +18,10 @@ export class NotionPageToHtml {
     const pageId = makeNotionUrlToPageIdFactory(pageURL).toPageId();
     const fetcher = await makeNotionApiPageFetcher(pageId);
     const notionApiResponses = await fetcher.getNotionPageContents();
+    // console.log(JSON.stringify(notionApiResponses, null, 4));
     const blocks = new NotionApiContentResponsesToBlocks(notionApiResponses).toBlocks();
 
     if (blocks.length === 0) return Promise.resolve({ html: '' });
-
     const htmlBody = await makeBlocksToHtml(blocks).convert();
     const pageProps = await new PageBlockToPageProps(blocks[0]).toPageProps();
 

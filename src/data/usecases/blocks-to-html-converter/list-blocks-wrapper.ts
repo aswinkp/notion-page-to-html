@@ -3,10 +3,18 @@ import { Block } from '../../protocols/blocks';
 export class ListBlocksWrapper {
   wrapLists(blocks: Block[]): Block[] {
     return blocks.reduce((blocks, b) => {
-      if (!this._isList(b)) return [...blocks, b];
+      if (!this._isList(b)) {
+        return [...blocks, b];
+      }
 
-      if (this._isFirstItemOfAList(blocks, b)) return [...blocks, this._generateListBlock(b)];
-
+      if (this._isFirstItemOfAList(blocks, b)){
+        // console.log('_isFirstItemOfAList====');
+        // console.log(JSON.stringify(b, null, 4));
+        // console.log()
+        return [...blocks, this._generateListBlock(b)];
+      }
+      // console.log('_NotFirstItemOfAList====');
+      // console.log(JSON.stringify(b, null, 4));
       const lastContent = blocks[blocks.length - 1];
       lastContent.children.push(b);
       return blocks;
