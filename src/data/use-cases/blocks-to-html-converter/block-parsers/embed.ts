@@ -1,5 +1,5 @@
 import { Block } from '../../../protocols/blocks';
-import { ToHtml } from '../../../../domain/usecases/to-html';
+import { ToHtml } from '../../../../domain/use-cases/to-html';
 
 export class EmbedBlockToHtml implements ToHtml {
   private readonly _block: Block;

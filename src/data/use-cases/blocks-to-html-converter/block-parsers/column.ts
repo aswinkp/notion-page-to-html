@@ -1,5 +1,5 @@
 import { Block } from '../../../protocols/blocks';
-import { ToHtml } from '../../../../domain/usecases/to-html';
+import { ToHtml } from '../../../../domain/use-cases/to-html';
 import { blocksToHtml } from '../../../helpers/blocks-to-html';
 
 export class ColumnBlockToHtml implements ToHtml {
